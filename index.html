@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FARIX · The Digital Universe</title>
+<meta name="description" content="Farix: exploring ideas, building digital experiences, and creating my own little universe.">
+<meta name="theme-color" content="#080609">
+<meta property="og:title" content="FARIX · The Digital Universe">
+<meta property="og:description" content="Exploring ideas, building digital experiences, and creating my own little universe.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts are an enhancement. The site looks right with system fonts if they fail to load. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Shared SVG shapes for the floating rocks -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="rk1" viewBox="0 0 60 44" overflow="visible"><polygon points="6,22 18,5 40,2 56,16 50,36 28,42 10,36" fill="#040304"/><polyline points="18,5 40,2 56,16" fill="none" stroke="rgba(150,245,255,.85)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="rk2" viewBox="0 0 60 44" overflow="visible"><polygon points="4,14 22,3 46,8 58,26 40,40 14,36" fill="#040304"/><polyline points="22,3 46,8 58,26" fill="none" stroke="rgba(150,245,255,.85)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="rk4" viewBox="0 0 60 44" overflow="visible"><polygon points="10,10 34,2 54,14 52,34 28,42 6,30" fill="#040304"/></symbol>
+    <symbol id="rk3" viewBox="0 0 60 44" overflow="visible"><polygon points="10,10 34,2 54,14 52,34 28,42 6,30" fill="#040304"/><polyline points="34,2 54,14 52,34" fill="none" stroke="rgba(150,245,255,.85)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#hero" aria-label="Farix, back to the beginning">
+    <svg class="mark" viewBox="0 0 40 24" aria-hidden="true"><circle cx="14" cy="12" r="9.5"/><circle cx="26" cy="12" r="9.5"/></svg>
+    <span class="brand-name">FARIX</span>
+    <span class="brand-sub" data-bind="location">Earth, for now</span>
+  </a>
+  <div class="top-right">
+    <div class="top-row">
+      <span class="top-year" aria-hidden="true">©<span data-bind="year">2026</span></span>
+      <a class="top-contact" href="#contact">Get in touch</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="dialog" aria-controls="portal" aria-expanded="false" aria-label="Open navigation menu">
+        <span class="menu-label">Menu</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="12" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="12" width="6" height="6" rx="1.5"/><rect x="12" y="12" width="6" height="6" rx="1.5"/></svg>
+      </button>
+    </div>
+    <span class="top-count" aria-hidden="true">00 / 01</span>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ SCENE 01 · THE COSMIC ENTRANCE ============ -->
+  <section id="hero" class="hero" aria-labelledby="heroTitle">
+    <div class="scene" id="scene" aria-hidden="true">
+      <div class="sky"></div>
+
+      <!-- Desktop + tablet: the moon -->
+      <div class="moon" id="moon">
+        <div class="moon-fallback"></div>
+        <canvas id="moonCanvas"></canvas>
+      </div>
+
+      <div class="rocks">
+        <svg class="rock" style="--x:54%;--y:35%;--s:4.6;--rot:12deg;--z:14;--t:9s;--dl:-2s" viewBox="0 0 60 44"><use href="#rk1"/></svg>
+        <svg class="rock" style="--x:34%;--y:42%;--s:4.4;--rot:-18deg;--z:10;--t:11s;--dl:-5s" viewBox="0 0 60 44"><use href="#rk2"/></svg>
+        <svg class="rock blur" style="--x:12%;--y:9%;--s:6.5;--rot:25deg;--z:30;--t:13s;--dl:-1s" viewBox="0 0 60 44"><use href="#rk4"/></svg>
+        <svg class="rock minor" style="--x:30%;--y:60%;--s:1.9;--rot:40deg;--z:8;--t:8s;--dl:-3s" viewBox="0 0 60 44"><use href="#rk1"/></svg>
+        <svg class="rock minor" style="--x:60.5%;--y:56%;--s:2.1;--rot:10deg;--z:8;--t:10s;--dl:-6s" viewBox="0 0 60 44"><use href="#rk2"/></svg>
+        <svg class="rock minor" style="--x:45.5%;--y:75%;--s:1.6;--rot:0deg;--z:6;--t:12s;--dl:-4s" viewBox="0 0 60 44"><use href="#rk3"/></svg>
+        <svg class="rock minor" style="--x:79%;--y:41%;--s:1.6;--rot:0deg;--z:6;--t:9s;--dl:-7s" viewBox="0 0 60 44"><use href="#rk1"/></svg>
+        <svg class="rock" style="--x:94.5%;--y:68%;--s:4;--rot:15deg;--z:22;--t:12s;--dl:-2s" viewBox="0 0 60 44"><use href="#rk2"/></svg>
+        <svg class="rock" style="--x:75%;--y:84%;--s:4.8;--rot:-10deg;--z:26;--t:10s;--dl:-8s" viewBox="0 0 60 44"><use href="#rk3"/></svg>
+      </div>
+
+      <svg class="ground" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="gRim" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#70EEFF" stop-opacity="0"/>
+            <stop offset=".28" stop-color="#70EEFF" stop-opacity=".18"/>
+            <stop offset=".56" stop-color="#a6f6ff" stop-opacity=".9"/>
+            <stop offset=".8" stop-color="#70EEFF" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#70EEFF" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="gFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#0c0608"/>
+            <stop offset="1" stop-color="#030203"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#gFill)" d="M0 150 L0 87.5 C12 86.6 24 85.6 34 84.3 C40 83.5 44 82.6 48 81.4 C54 79.7 60 78.8 66 77.8 C76 76.2 88 74.6 100 73.2 L100 150 Z"/>
+        <path class="g-glow" fill="none" stroke="url(#gRim)" stroke-width="14" vector-effect="non-scaling-stroke" d="M0 87.5 C12 86.6 24 85.6 34 84.3 C40 83.5 44 82.6 48 81.4 C54 79.7 60 78.8 66 77.8 C76 76.2 88 74.6 100 73.2"/>
+        <path fill="none" stroke="url(#gRim)" stroke-width="1.6" vector-effect="non-scaling-stroke" d="M0 87.5 C12 86.6 24 85.6 34 84.3 C40 83.5 44 82.6 48 81.4 C54 79.7 60 78.8 66 77.8 C76 76.2 88 74.6 100 73.2"/>
+      </svg>
+
+      <div class="figure">
+        <svg viewBox="0 0 44 126">
+          <g fill="#030203">
+            <ellipse cx="22.4" cy="9" rx="5.2" ry="6.4"/>
+            <path d="M19.8 14h5.2v5h-5.2z"/>
+            <path d="M11 22C11 20 15 18.8 22.4 18.8C29.8 18.8 33.8 20 33.8 22L34.4 58C34.4 60.5 32.5 62 30 62H14.8C12.3 62 10.6 60.5 10.6 58Z"/>
+            <path d="M11.4 22.6L7.6 26L5.6 56C5.5 59 6.4 61 8.2 61C9.8 61 10.8 59.4 11 57L13.6 29Z"/>
+            <path d="M33.4 22.6L37.2 26L39.2 56C39.3 59 38.4 61 36.6 61C35 61 34 59.4 33.8 57L31.2 29Z"/>
+            <path d="M14.6 60H22L21.4 119C21.4 122 21 124 19.6 125H12.6C12 125 11.8 123.8 12.1 122.6L13.6 100Z"/>
+            <path d="M22.8 60H30.2L31.6 100L33.2 122.6C33.5 123.8 33.2 125 32.6 125H25.4C24 124 23.6 122 23.6 119Z"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="car">
+        <svg viewBox="0 0 280 76">
+          <g fill="#030203">
+            <path d="M8 58V48C8 43 14 41.5 25 40.5L64 36C74 30 88 24 108 21.5L156 20.5C174 20.5 190 27 204 34L246 38C262 40 272 45 272 52V58Z"/>
+            <circle cx="66" cy="58" r="15.5"/>
+            <circle cx="214" cy="58" r="15.5"/>
+          </g>
+          <path d="M64 36C74 30 88 24 108 21.5L156 20.5C174 20.5 190 27 204 34" fill="none" stroke="rgba(150,245,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="66" cy="58" r="15.5" fill="none" stroke="rgba(150,245,255,.28)" stroke-width="1"/>
+          <circle cx="214" cy="58" r="15.5" fill="none" stroke="rgba(150,245,255,.28)" stroke-width="1"/>
+        </svg>
+        <span class="headlight"></span>
+      </div>
+
+      <div class="vignette"></div>
+      <div class="mobile-glow"></div>
+    </div>
+
+    <!-- Mobile: the planet -->
+    <div class="planet-slot" aria-hidden="true">
+      <div class="planet" id="planet">
+        <canvas id="ringsBack"></canvas>
+        <div class="planet-fallback"></div>
+        <canvas id="planetCanvas"></canvas>
+        <canvas id="ringsFront"></canvas>
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+      </div>
+    </div>
+
+    <div class="hero-copy">
+      <p class="kicker">[<span data-bind="kicker">The digital universe</span>]</p>
+      <h1 id="heroTitle">
+        <span class="line"><span data-bind="title.0">Still</span></span>
+        <span class="line accent"><span data-bind="title.1">Becoming.</span></span>
+      </h1>
+      <p class="lede" data-bind="lede">Exploring ideas, building digital experiences, and creating my own little universe.</p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="foot-left">
+        <button class="explore" id="explore" type="button" aria-haspopup="dialog" aria-controls="portal">
+          <span class="lab"><span class="lab-long">Explore the universe</span><span class="lab-short">Explore</span></span>
+          <span class="track-wrap" aria-hidden="true"><span class="track"></span><span class="knob"></span></span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 3v13M4.5 10.5 10 16l5.5-5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <span class="foot-note">Portfolio <span data-bind="year">2026</span></span>
+      </div>
+      <div class="foot-right" aria-hidden="true">
+        <span id="coord">COORD // +00.0000° N · +000.0000° E</span>
+        <span>SCENE // 01 · LUNAR ORBIT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 03 · ABOUT ============ -->
+  <section id="about" class="section about" aria-labelledby="aboutTitle">
+    <div class="about-grid">
+      <div class="about-side reveal">
+        <p class="eyebrow">01 / About</p>
+        <h2 id="aboutTitle" class="sr-only">About Farix</h2>
+        <div class="mini-orbit" aria-hidden="true"><i class="ring"></i><i class="ring"></i><i class="ring"></i><i class="core"></i></div>
+        <p class="chip" data-bind="about.note">Editable copy. Replace with your own story.</p>
+      </div>
+      <div class="about-main">
+        <p class="about-lead reveal" data-bind="about.lead">I'm Farix. I'm curious about people, ideas, technology, and the ways digital experiences can make us feel something.</p>
+        <ul class="signals" id="signals"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 04 · PROJECT ORBIT ============ -->
+  <section id="projects" class="section" aria-labelledby="projectsTitle">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">02 / Project Orbit</p>
+        <h2 id="projectsTitle">Worlds I'm building</h2>
+      </div>
+      <p class="chip">Sample projects. Replace them in <code>js/content.js</code></p>
+    </div>
+    <div class="project-list" id="projectList" role="list" tabindex="-1"></div>
+    <div class="carousel-ui" aria-hidden="true">
+      <span class="swipe-hint">Swipe <i></i></span>
+      <span class="dots" id="projectDots"></span>
+    </div>
+  </section>
+
+  <!-- ============ SCENE 05 · EXPERIMENT LAB ============ -->
+  <section id="experiments" class="section" aria-labelledby="labTitle">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">03 / Experiment Lab</p>
+        <h2 id="labTitle">Small things I like to try</h2>
+      </div>
+      <p class="chip">Live toys. Touch them.</p>
+    </div>
+    <div class="lab-grid" id="labGrid"></div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section" aria-labelledby="skillsTitle">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">04 / Focus areas</p>
+        <h2 id="skillsTitle">Where my attention goes</h2>
+      </div>
+      <p class="chip">Directions, not job titles. Edit freely.</p>
+    </div>
+    <ul class="skill-grid" id="skillGrid"></ul>
+  </section>
+
+  <!-- ============ SCENE 06 · CONTACT TRANSMISSION ============ -->
+  <section id="contact" class="section contact" aria-labelledby="contactTitle">
+    <p class="eyebrow reveal">05 / Contact transmission</p>
+    <h2 id="contactTitle" class="contact-title reveal">
+      <span data-bind="contact.heading.0">Every universe</span><br><span class="accent" data-bind="contact.heading.1">starts somewhere.</span>
+    </h2>
+    <p class="contact-text reveal" data-bind="contact.text">Got an idea, a question, or just want to say hi? Send a transmission.</p>
+    <p class="status reveal" aria-hidden="true"><i></i> TRANSMISSION // OPEN</p>
+    <div class="contact-actions reveal" id="contactActions"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span data-bind="year">2026</span> Farix · Made with curiosity · Placeholder content is labelled and easy to replace</p>
+</footer>
+
+<!-- ============ SCENE 02 · EXPLORE (navigation portal) ============ -->
+<div class="portal" id="portal" role="dialog" aria-modal="true" aria-label="Site navigation" inert>
+  <canvas id="warp" aria-hidden="true"></canvas>
+  <div class="portal-top">
+    <span class="portal-brand">FARIX <i></i> NAVIGATION</span>
+    <button class="portal-close" id="portalClose" type="button" aria-label="Close navigation">Close <span aria-hidden="true">✕</span></button>
+  </div>
+  <nav class="portal-nav" aria-label="Sections">
+    <ol>
+      <li><a href="#about" data-nav><span class="n">01</span><span class="t">About</span><span class="d">Who is Farix</span></a></li>
+      <li><a href="#projects" data-nav><span class="n">02</span><span class="t">Projects</span><span class="d">Project Orbit</span></a></li>
+      <li><a href="#experiments" data-nav><span class="n">03</span><span class="t">Experiments</span><span class="d">The lab</span></a></li>
+      <li><a href="#skills" data-nav><span class="n">04</span><span class="t">Skills</span><span class="d">Focus areas</span></a></li>
+      <li><a href="#contact" data-nav><span class="n">05</span><span class="t">Contact</span><span class="d">Send a transmission</span></a></li>
+    </ol>
+  </nav>
+  <div class="portal-foot"><a href="#hero" data-nav class="back-link">↑ Return to the beginning</a></div>
+</div>
+
+<!-- Project detail view -->
+<dialog class="proj" id="projectDialog" aria-labelledby="pdTitle">
+  <button class="proj-close" id="pdClose" type="button" aria-label="Close project details">✕</button>
+  <div class="proj-cover cover" id="pdCover"><div class="pl"></div><div class="pl-ring"></div></div>
+  <div class="proj-body">
+    <p class="eyebrow" id="pdCat"></p>
+    <h3 id="pdTitle"></h3>
+    <p class="proj-text" id="pdText"></p>
+    <ul class="tags" id="pdTags"></ul>
+    <p class="chip" id="pdNote" hidden>Placeholder project. Replace it in <code>js/content.js</code></p>
+    <div class="proj-actions">
+      <a class="btn" id="pdLink" href="#" target="_blank" rel="noopener noreferrer" hidden>View live project ↗</a>
+      <button class="btn ghost" id="pdNext" type="button">Next project →</button>
+    </div>
+  </div>
+</dialog>
+
+<noscript><p style="position:fixed;left:0;right:0;bottom:0;padding:12px;background:#100708;color:#f4f3f7;text-align:center;z-index:200">This portfolio uses JavaScript for its animated universe. Please enable it for the full experience.</p></noscript>
+
+<script src="js/content.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/experiments.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
